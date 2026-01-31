@@ -14,3 +14,5 @@ Error: listen tcp 127.0.0.1:11434: bind: address already in use
 adam@WindTurbine:~$ pkill ollama
 pkill: killing pid 188 failed: Operation not permitted
 pkill: killing pid 448 failed: Operation not permitted
+
+HSA_OVERRIDE_GFX_VERSION=11.0.0 OLLAMA_DEBUG=1 ollama serve 2>&1 | head -100
