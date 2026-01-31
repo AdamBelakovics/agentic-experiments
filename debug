@@ -10,3 +10,7 @@ Your new public key is:
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHIK0DhX4NoJpnDQzJmtDeozEKyAiETaSPDQ/57wtkf
 
 Error: listen tcp 127.0.0.1:11434: bind: address already in use
+
+adam@WindTurbine:~$ pkill ollama
+pkill: killing pid 188 failed: Operation not permitted
+pkill: killing pid 448 failed: Operation not permitted
