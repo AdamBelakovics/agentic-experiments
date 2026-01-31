@@ -1,2 +1,12 @@
 ollama --version
 OLLAMA_DEBUG=1 ollama serve 2>&1 | head -50
+
+ollama --version
+OLLAMA_DEBUG=1 ollama serve 2>&1 | head -50
+ollama version is 0.15.2
+Couldn't find '/home/adam/.ollama/id_ed25519'. Generating new private key.
+Your new public key is:
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHIK0DhX4NoJpnDQzJmtDeozEKyAiETaSPDQ/57wtkf
+
+Error: listen tcp 127.0.0.1:11434: bind: address already in use
