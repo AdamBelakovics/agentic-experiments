@@ -37,3 +37,24 @@ time=2026-01-31T17:53:40.609+01:00 level=DEBUG source=runner.go:124 msg="evaluat
 time=2026-01-31T17:53:40.609+01:00 level=DEBUG source=runner.go:40 msg="GPU bootstrap discovery took" duration=54.65277ms
 time=2026-01-31T17:53:40.609+01:00 level=INFO source=types.go:60 msg="inference compute" id=cpu library=cpu compute="" name=cpu description=cpu libdirs=ollama driver="" pci_id="" type="" total="15.2 GiB" available="14.6 GiB"
 time=2026-01-31T17:53:40.609+01:00 level=INFO source=routes.go:1725 msg="entering low vram mode" "total vram"="0 B" threshold="20.0 GiB"
+
+
+# Stop Ollama
+sudo systemctl stop ollama
+
+# Remove current (CUDA) installation
+sudo rm -rf /usr/local/lib/ollama
+sudo rm -f /usr/local/bin/ollama
+
+# Download ROCm-specific build
+curl -L https://ollama.com/download/ollama-linux-amd64-rocm.tgz -o ollama-rocm.tgz
+
+# Extract
+sudo tar -C /usr -xzf ollama-rocm.tgz
+
+# Verify ROCm libraries exist
+ls /usr/lib/ollama/ | grep -i rocm
+
+# Set env and start
+export HSA_OVERRIDE_GFX_VERSION=11.0.0
+ollama serve
