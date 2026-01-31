@@ -1,0 +1,2 @@
+ollama --version
+OLLAMA_DEBUG=1 ollama serve 2>&1 | head -50
